@@ -35,6 +35,11 @@ import refresh_icon from "./important/refresh-ccw-dot.svg";
 import arrow_right from "./important/move-left.svg";
 
 import remove_icon from "./important/letter-x.png";
+import add_icon from "./important/add.png";
+import product_list from "./important/invoice1.png";
+import order_icon from "./important/online-order.png";
+import upload_image from "./important/upload.png";
+import box_icon from "./important/box-solid.svg";
 
 // Banner Images
 
@@ -180,6 +185,11 @@ export const assets = {
 	arrow_right,
 	remove_icon,
 	address_image,
+	add_icon,
+	product_list,
+	order_icon,
+	upload_image,
+	box_icon,
 };
 
 export const categories = [
@@ -593,60 +603,227 @@ export const dummyAddresses = [
 		street: "KG 7 Ave, Kimihurura",
 		city: "Kigali",
 		state: "Kigali",
+		zipcode: "KG 7",
 		country: "Rwanda",
 	},
 	{
 		street: "123 Main Street",
 		city: "New York",
 		state: "New York",
+		zipcode: "10001",
 		country: "USA",
 	},
 	{
 		street: "45 Oxford Road",
 		city: "London",
 		state: "England",
+		zipcode: "W1D 3DD",
 		country: "United Kingdom",
 	},
 	{
 		street: "78 King Street",
 		city: "Toronto",
 		state: "Ontario",
+		zipcode: "M5H 1J9",
 		country: "Canada",
 	},
 	{
 		street: "12 George Street",
 		city: "Sydney",
 		state: "New South Wales",
+		zipcode: "2000",
 		country: "Australia",
 	},
 	{
 		street: "25 Sheikh Zayed Road",
 		city: "Dubai",
 		state: "Dubai",
+		zipcode: "00000",
 		country: "United Arab Emirates",
 	},
 	{
 		street: "18 Nelson Mandela Road",
 		city: "Nairobi",
 		state: "Nairobi County",
+		zipcode: "00100",
 		country: "Kenya",
 	},
 	{
 		street: "56 Long Street",
 		city: "Cape Town",
 		state: "Western Cape",
+		zipcode: "8001",
 		country: "South Africa",
 	},
 	{
 		street: "34 Rue de Rivoli",
 		city: "Paris",
 		state: "Île-de-France",
+		zipcode: "75001",
 		country: "France",
 	},
 	{
 		street: "91 Shibuya Street",
 		city: "Tokyo",
 		state: "Tokyo",
+		zipcode: "150-0002",
 		country: "Japan",
+	},
+];
+
+export const dummyOrders = [
+	{
+		_id: "6ythh4566kkk5456667kk00",
+		userId: "46623ut5670p9pjjdp888",
+		address:
+			{
+				firstName: "Erneste",
+				lastName: "Izere",
+				street: dummyAddresses[0].street,
+				city: dummyAddresses[0].city,
+				state: dummyAddresses[0].state,
+				zipcode: dummyAddresses[0].zipcode,
+				country: dummyAddresses[0].country,
+				phone: "+250 788 000 001",
+			},		
+		items: [
+			{
+				product: dummyProducts[3],
+				quantity: 2,
+				_id: "67rtt334566970709",
+			},
+		],
+		amount: 20,
+		paymentType: "Cash on Delivery",
+		status: "Order Placed",
+		isPaid: true,
+		createdAt: "2026-08-25T07:17:46.018Z",
+		updatedAt: "2026-08-25T07:18:46.108Z",
+	},
+
+	{
+		_id: "7abc5678jjk9988776655",
+		userId: "46623ut5670p9pjjdp888",
+		address:
+			{
+				firstName: "John",
+				lastName: "Doe",
+				street: dummyAddresses[2].street,
+				city: dummyAddresses[2].city,
+				state: dummyAddresses[2].state,
+				zipcode: dummyAddresses[2].zipcode,
+				country: dummyAddresses[2].country,
+				phone: "+44 7700 900123",
+			},
+		items: [
+			{
+				product: dummyProducts[1],
+				quantity: 1,
+				_id: "78hhy223344556677",
+			},
+			{
+				product: dummyProducts[5],
+				quantity: 2,
+				_id: "89jjk334455667788",
+			},
+		],
+		amount: 45,
+		paymentType: "Online Payment",
+		status: "Order Placed",
+		isPaid: true,
+		createdAt: "2026-08-26T10:32:21.018Z",
+		updatedAt: "2026-08-26T10:33:12.108Z",
+	},
+
+	{
+		_id: "8def7890mmm1122334455",
+		userId: "46623ut5670p9pjjdp888",
+		address:
+			{
+				firstName: "Aline",
+				lastName: "Uwase",
+				street: dummyAddresses[1].street,
+				city: dummyAddresses[1].city,
+				state: dummyAddresses[1].state,
+				zipcode: dummyAddresses[1].zipcode,
+				country: dummyAddresses[1].country,
+				phone: "+1 212 555 0147",
+			},
+		items: [
+			{
+				product: dummyProducts[7],
+				quantity: 3,
+				_id: "90llm445566778899",
+			},
+		],
+		amount: 32,
+		paymentType: "Cash on Delivery",
+		status: "Order Shipped",
+		isPaid: false,
+		createdAt: "2026-08-27T08:15:33.018Z",
+		updatedAt: "2026-08-27T12:45:16.108Z",
+	},
+
+	{
+		_id: "9ghi8901nnn2233445566",
+		userId: "46623ut5670p9pjjdp888",
+		address:
+			{
+				firstName: "David",
+				lastName: "Mugisha",
+				street: dummyAddresses[7].street,
+				city: dummyAddresses[7].city,
+				state: dummyAddresses[7].state,
+				zipcode: dummyAddresses[7].zipcode,
+				country: dummyAddresses[7].country,
+				phone: "+27 71 234 5678",
+			},
+		items: [
+			{
+				product: dummyProducts[2],
+				quantity: 1,
+				_id: "01oop556677889900",
+			},
+			{
+				product: dummyProducts[4],
+				quantity: 1,
+				_id: "12ppq667788990011",
+			},
+		],
+		amount: 78,
+		paymentType: "Online Payment",
+		status: "Order Delivered",
+		isPaid: true,
+		createdAt: "2026-08-24T14:27:19.018Z",
+		updatedAt: "2026-08-27T16:08:42.108Z",
+	},
+
+	{
+		_id: "0jkl9012ooo3344556677",
+		userId: "46623ut5670p9pjjdp888",
+		address:
+			{
+				firstName: "Sarah",
+				lastName: "Kim",
+				street: dummyAddresses[9].street,
+				city: dummyAddresses[9].city,
+				state: dummyAddresses[9].state,
+				zipcode: dummyAddresses[9].zipcode,
+				country: dummyAddresses[9].country,
+				phone: "+81 90 1234 5678",
+			},
+		items: [
+			{
+				product: dummyProducts[6],
+				quantity: 2,
+				_id: "23qqr778899001122",
+			},
+		],
+		amount: 56,
+		paymentType: "Cash on Delivery",
+		status: "Order Cancelled",
+		isPaid: false,
+		createdAt: "2026-08-23T11:42:55.018Z",
+		updatedAt: "2026-08-24T09:21:34.108Z",
 	},
 ];
