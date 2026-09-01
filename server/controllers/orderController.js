@@ -41,3 +41,12 @@ export const getUserOrders = asyncHandler(async(req, res) => {
     }).populate("items.product address").sort({createdAt: -1})
     res.status(200).json({success: true, orders})
 })
+
+export const getAllOrders = asyncHandler(async(req, res) => {
+    const {userId} = req?.body || {}
+
+    const orders = await Order.find({
+        $or: [{paymentType: "COD"}, {isPaid: true}]
+    }).populate("items.product address").sort({createdAt: -1})
+    res.status(200).json({success: true, orders})
+})

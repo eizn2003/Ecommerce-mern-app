@@ -1,5 +1,5 @@
 import asyncHandler from "express-async-handler";
-import { User } from "../models/user";
+import { User } from "../models/user.js";
 
 export const updateCart = asyncHandler(async(req, res) => {
     const {userId, cartItems} = req?.body || {}
