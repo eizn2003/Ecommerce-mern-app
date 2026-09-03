@@ -5,6 +5,7 @@ import {
 	getAllOrders,
 	getUserOrders,
 	placeOrderCOD,
+	placeOrderStripe,
 } from "../controllers/orderController.js";
 
 export const orderRouter = express.Router();
@@ -12,3 +13,4 @@ export const orderRouter = express.Router();
 orderRouter.post("/cod", authUser, placeOrderCOD);
 orderRouter.get("/user", authUser, getUserOrders);
 orderRouter.get("/seller", authSeller, getAllOrders);
+orderRouter.post("/stripe", authUser, placeOrderStripe);
