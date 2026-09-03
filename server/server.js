@@ -1,4 +1,4 @@
-import express from "express";
+import express, { application, json } from "express";
 import "dotenv/config";
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -11,6 +11,7 @@ import { productRouter } from "./routes/productRoute.js";
 import { cartRouter } from "./routes/cartRoute.js";
 import { addressRouter } from "./routes/addressRoute.js";
 import { orderRouter } from "./routes/orderRoute.js";
+import { stripeWebHooks } from "./controllers/orderController.js";
 
 await connectDB();
 await connectCloudinary();
@@ -20,6 +21,8 @@ const PORT = process.env.PORT || 5000;
 
 //Allow multiple origins
 const allowedOrigins = ["http://localhost:5173"];
+
+app.post('/stripe', express.raw({type: 'application/json'}), stripeWebHooks)
 
 //Middleware configuration
 app.use(express.json());

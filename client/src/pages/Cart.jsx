@@ -15,7 +15,7 @@ export const Cart = () => {
 		getCartAmount,
 		axios,
 		user,
-		setCartItems
+		setCartItems,
 	} = UseAppContext();
 
 	const [cartArray, setCartArray] = useState([]);
@@ -63,18 +63,33 @@ export const Cart = () => {
 					address: selectedAddress._id,
 					items: cartArray.map((item) => ({
 						product: item._id,
-						quantity: item.quantity,						
+						quantity: item.quantity,
 					})),
 				});
 				if (data.success) {
-					toast.success(data.message)
+					toast.success(data.message);
 					toast.success(
 						`Order worth ${(getCartAmount() * getCartAmount() * 2) / 100}K has been placed`,
 					);
-					setCartItems({})
-					navigate('/my-orders')
-				}else{
-					toast.error(data.message)
+					setCartItems({});
+					navigate("/my-orders");
+				} else {
+					toast.error(data.message);
+				}
+			} else {
+				//place order with stripe
+				const { data } = await axios.post("/api/order/stripe", {
+					userId: user._id,
+					address: selectedAddress._id,
+					items: cartArray.map((item) => ({
+						product: item._id,
+						quantity: item.quantity,
+					})),
+				});
+				if (data.success) {
+					window.location.replace(data.url);
+				} else {
+					toast.error(data.message);
 				}
 			}
 		} catch (error) {
