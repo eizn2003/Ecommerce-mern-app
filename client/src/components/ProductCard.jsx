@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { assets } from "../assets/assets";
 import { UseAppContext } from "../context/AppContext";
 

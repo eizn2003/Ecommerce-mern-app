@@ -53,17 +53,6 @@ import bottom_banner_image_sm from "./important/Untitled design.png";
 
 import address_image from "./important/vecteezy_a-stylized-three-dimensional-representation-of-a-location-pin_55654948.png";
 
-//Jackets images
-import dj1 from "./notimportant/Gemini_Generated_Image_uyxdncuyxdncuyxd.jpeg";
-import dj2 from "./notimportant/Gemini_Generated_Image_772udd772udd772u.jpeg";
-import dj3 from "./notimportant/Gemini_Generated_Image_j5f7aj5f7aj5f7aj.jpeg";
-import dj4 from "./notimportant/Gemini_Generated_Image_wjvtnzwjvtnzwjvt.jpeg";
-
-import bj1 from "./notimportant/Gemini_Generated_Image_ipr5omipr5omipr5.jpeg";
-import bj2 from "./notimportant/Gemini_Generated_Image_6r6kgl6r6kgl6r6k.jpeg";
-import bj3 from "./notimportant/Gemini_Generated_Image_u04vxhu04vxhu04v.jpeg";
-import bj4 from "./notimportant/Gemini_Generated_Image_sld62jsld62jsld6.jpeg";
-
 const lv1 =
 	"https://plus.unsplash.com/premium_photo-1786862337937-364a4085bfd4?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 const lv2 =
@@ -73,85 +62,6 @@ const lv3 =
 const lv4 =
 	"https://plus.unsplash.com/premium_photo-1786938675431-e187e139227a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDh8fHxlbnwwfHx8fHw%3D";
 
-//Pants images
-import dp1 from "./notimportant/Gemini_Generated_Image_g0j3gug0j3gug0j3.jpeg";
-import dp2 from "./notimportant/Gemini_Generated_Image_tt5loqtt5loqtt5l.jpeg";
-import dp3 from "./notimportant/Gemini_Generated_Image_yfkebdyfkebdyfke.jpeg";
-import dp4 from "./notimportant/Gemini_Generated_Image_wqwfcqwqwfcqwqwf.jpeg";
-
-import cp1 from "./notimportant/Gemini_Generated_Image_r291qqr291qqr291.jpeg";
-import cp2 from "./notimportant/Gemini_Generated_Image_wd6p9kwd6p9kwd6p.jpeg";
-import cp3 from "./notimportant/Gemini_Generated_Image_xivmz6xivmz6xivm.jpeg";
-import cp4 from "./notimportant/Gemini_Generated_Image_pnsnt9pnsnt9pnsn.jpeg";
-
-import ch1 from "./notimportant/Gemini_Generated_Image_usi14dusi14dusi1.jpeg";
-import ch2 from "./notimportant/Gemini_Generated_Image_k2gcd5k2gcd5k2gc.jpeg";
-import ch3 from "./notimportant/Gemini_Generated_Image_6cgxhr6cgxhr6cgx.jpeg";
-import ch4 from "./notimportant/Gemini_Generated_Image_f7v4iuf7v4iuf7v4.jpeg";
-
-//T-Shirts images
-import wt1 from "./notimportant/Gemini_Generated_Image_x869q6x869q6x869.jpeg";
-import wt2 from "./notimportant/Gemini_Generated_Image_rrjbizrrjbizrrjb.jpeg";
-import wt3 from "./notimportant/Gemini_Generated_Image_hghllehghllehghl.jpeg";
-import wt4 from "./notimportant/Gemini_Generated_Image_d0zr6nd0zr6nd0zr.jpeg";
-
-import bt1 from "./notimportant/Gemini_Generated_Image_w3iin4w3iin4w3ii.jpeg";
-import bt2 from "./notimportant/Gemini_Generated_Image_k28gy7k28gy7k28g.jpeg";
-import bt3 from "./notimportant/Gemini_Generated_Image_dnutnbdnutnbdnut.jpeg";
-import bt4 from "./notimportant/Gemini_Generated_Image_3u250r3u250r3u25.jpeg";
-
-import gt1 from "./notimportant/Gemini_Generated_Image_zfkrfyzfkrfyzfkr.jpeg";
-import gt2 from "./notimportant/Gemini_Generated_Image_oytfdzoytfdzoytf.jpeg";
-import gt3 from "./notimportant/Gemini_Generated_Image_k4kqaxk4kqaxk4kq.jpeg";
-import gt4 from "./notimportant/Gemini_Generated_Image_alq4j8alq4j8alq4.jpeg";
-
-//Dresses images
-import ed1 from "./notimportant/Gemini_Generated_Image_tm4xwutm4xwutm4x.jpeg";
-import ed2 from "./notimportant/Gemini_Generated_Image_ojcf4ojcf4ojcf4o.jpeg";
-import ed3 from "./notimportant/Gemini_Generated_Image_qxc79rqxc79rqxc7.jpeg";
-import ed4 from "./notimportant/Gemini_Generated_Image_2szox82szox82szo.jpeg";
-
-import sd1 from "./notimportant/Gemini_Generated_Image_x2wzlzx2wzlzx2wz.jpeg";
-import sd2 from "./notimportant/Gemini_Generated_Image_tnewhatnewhatnew.jpeg";
-import sd3 from "./notimportant/Gemini_Generated_Image_7t81k27t81k27t81.jpeg";
-import sd4 from "./notimportant/Gemini_Generated_Image_7chwrb7chwrb7chw.jpeg";
-
-import fd1 from "./notimportant/Gemini_Generated_Image_wnsnmhwnsnmhwnsn.jpeg";
-import fd2 from "./notimportant/Gemini_Generated_Image_vka4w8vka4w8vka4.jpeg";
-import fd3 from "./notimportant/Gemini_Generated_Image_ysyer5ysyer5ysye.jpeg";
-import fd4 from "./notimportant/Gemini_Generated_Image_7w4zd97w4zd97w4z.jpeg";
-
-//Shoes images
-import ws1 from "./notimportant/Gemini_Generated_Image_2d0lcu2d0lcu2d0l.jpeg";
-import ws2 from "./notimportant/Gemini_Generated_Image_hm42gthm42gthm42.jpeg";
-import ws3 from "./notimportant/Gemini_Generated_Image_bqbrmcbqbrmcbqbr.jpeg";
-import ws4 from "./notimportant/Gemini_Generated_Image_juia4qjuia4qjuia.jpeg";
-
-import bs1 from "./notimportant/Gemini_Generated_Image_itnb85itnb85itnb.jpeg";
-import bs2 from "./notimportant/Gemini_Generated_Image_1st4sd1st4sd1st4.jpeg";
-import bs3 from "./notimportant/Gemini_Generated_Image_1mhkw41mhkw41mhk.jpeg";
-import bs4 from "./notimportant/Gemini_Generated_Image_2d41uz2d41uz2d41.jpeg";
-
-import lb1 from "./notimportant/Gemini_Generated_Image_cp3qkucp3qkucp3q.jpeg";
-import lb2 from "./notimportant/Gemini_Generated_Image_d7r9oyd7r9oyd7r9.jpeg";
-import lb3 from "./notimportant/Gemini_Generated_Image_6uauxd6uauxd6uau.jpeg";
-import lb4 from "./notimportant/Gemini_Generated_Image_hike2bhike2bhike.jpeg";
-
-//Accessories images
-import bl1 from "./notimportant/Gemini_Generated_Image_ymfi25ymfi25ymfi.jpeg";
-import bl2 from "./notimportant/Gemini_Generated_Image_teyiseteyiseteyi.jpeg";
-import bl3 from "./notimportant/Gemini_Generated_Image_bgcuq8bgcuq8bgcu.jpeg";
-import bl4 from "./notimportant/Gemini_Generated_Image_7klyu77klyu77kly.jpeg";
-
-import ww1 from "./notimportant/Gemini_Generated_Image_u74lbnu74lbnu74l.jpeg";
-import ww2 from "./notimportant/Gemini_Generated_Image_drqa0odrqa0odrqa.jpeg";
-import ww3 from "./notimportant/Gemini_Generated_Image_c4m71c4m71c4m71c.jpeg";
-import ww4 from "./notimportant/Gemini_Generated_Image_6ulfql6ulfql6ulf.jpeg";
-
-import sg1 from "./notimportant/Gemini_Generated_Image_m1s9rrm1s9rrm1s9.jpeg";
-import sg2 from "./notimportant/Gemini_Generated_Image_iptdrniptdrniptd.jpeg";
-import sg3 from "./notimportant/Gemini_Generated_Image_ag426wag426wag42.jpeg";
-import sg4 from "./notimportant/Gemini_Generated_Image_92fw5992fw5992fw.jpeg";
 
 //Product Categories images
 const denim_pants_image =
@@ -196,37 +106,37 @@ export const categories = [
 	{
 		text: "Pants",
 		path: "Pants",
-		image: denim_pants_image,
+		//image: denim_pants_image,
 		bgColor: "#FEF6DA",
 	},
 	{
 		text: "T-Shirts",
 		path: "T-Shirts",
-		image: t_shirts_image,
+		//image: t_shirts_image,
 		bgColor: "#E8F5E9",
 	},
 	{
 		text: "Dresses",
 		path: "Dresses",
-		image: dresses_image,
+		//image: dresses_image,
 		bgColor: "#FCE4EC",
 	},
 	{
 		text: "Jackets",
 		path: "Jackets",
-		image: jackets_image,
+		//image: jackets_image,
 		bgColor: "#E3F2FD",
 	},
 	{
 		text: "Shoes",
 		path: "Shoes",
-		image: shoes_image,
+		//image: shoes_image,
 		bgColor: "#FFF3E0",
 	},
 	{
 		text: "Accessories",
 		path: "Accessories",
-		image: accessories_image,
+		//image: accessories_image,
 		bgColor: "#F3E5F5",
 	},
 ];
@@ -304,7 +214,7 @@ export const dummyProducts = [
 		category: "Jackets",
 		price: 250,
 		offPrice: 20,
-		image: [lv1, lv2, lv3, lv4],
+		//image: [lv1, lv2, lv3, lv4],
 		description: [
 			"Premium Leather",
 			"For those who breathe fashion",
@@ -320,7 +230,7 @@ export const dummyProducts = [
 		category: "Jackets",
 		price: 120,
 		offPrice: 15,
-		image: [dj1, dj2, dj3, dj4],
+		//image: [dj1, dj2, dj3, dj4],
 		description: [
 			"Classic denim material",
 			"Comfortable relaxed fit",
@@ -336,7 +246,7 @@ export const dummyProducts = [
 		category: "Jackets",
 		price: 180,
 		offPrice: 25,
-		image: [bj1, bj2, bj3, bj4],
+		//image: [bj1, bj2, bj3, bj4],
 		description: [
 			"Modern oversized design",
 			"Lightweight and comfortable",
@@ -354,7 +264,7 @@ export const dummyProducts = [
 		category: "Pants",
 		price: 95,
 		offPrice: 15,
-		image: [dp1, dp2, dp3, dp4],
+		//image: [dp1, dp2, dp3, dp4],
 		description: [
 			"Premium cotton denim",
 			"Slim comfortable fit",
@@ -370,7 +280,7 @@ export const dummyProducts = [
 		category: "Pants",
 		price: 110,
 		offPrice: 20,
-		image: [cp1, cp2, cp3, cp4],
+		//image: [cp1, cp2, cp3, cp4],
 		description: [
 			"Multiple utility pockets",
 			"Durable cotton fabric",
@@ -386,7 +296,7 @@ export const dummyProducts = [
 		category: "Pants",
 		price: 85,
 		offPrice: 10,
-		image: [ch1, ch2, ch3, ch4],
+		//image: [ch1, ch2, ch3, ch4],
 		description: [
 			"Soft stretch fabric",
 			"Smart casual design",
@@ -404,7 +314,7 @@ export const dummyProducts = [
 		category: "T-Shirts",
 		price: 45,
 		offPrice: 10,
-		image: [wt1, wt2, wt3, wt4],
+		//image: [wt1, wt2, wt3, wt4],
 		description: [
 			"100% premium cotton",
 			"Soft and breathable",
@@ -420,7 +330,7 @@ export const dummyProducts = [
 		category: "T-Shirts",
 		price: 55,
 		offPrice: 15,
-		image: [bt1, bt2, bt3, bt4],
+		//image: [bt1, bt2, bt3, bt4],
 		description: [
 			"Heavyweight cotton",
 			"Oversized streetwear fit",
@@ -436,7 +346,7 @@ export const dummyProducts = [
 		category: "T-Shirts",
 		price: 65,
 		offPrice: 20,
-		image: [gt1, gt2, gt3, gt4],
+		//image: [gt1, gt2, gt3, gt4],
 		description: [
 			"Unique graphic print",
 			"Comfortable cotton fabric",
@@ -454,7 +364,7 @@ export const dummyProducts = [
 		category: "Dresses",
 		price: 140,
 		offPrice: 20,
-		image: [sd1, sd2, sd3, sd4],
+		//image: [sd1, sd2, sd3, sd4],
 		description: [
 			"Lightweight breathable fabric",
 			"Elegant flowing design",
@@ -470,7 +380,7 @@ export const dummyProducts = [
 		category: "Dresses",
 		price: 220,
 		offPrice: 25,
-		image: [ed1, ed2, ed3, ed4],
+		//image: [ed1, ed2, ed3, ed4],
 		description: [
 			"Elegant premium fabric",
 			"Sophisticated silhouette",
@@ -486,7 +396,7 @@ export const dummyProducts = [
 		category: "Dresses",
 		price: 160,
 		offPrice: 15,
-		image: [fd1, fd2, fd3, fd4],
+		//image: [fd1, fd2, fd3, fd4],
 		description: [
 			"Beautiful floral pattern",
 			"Comfortable midi length",
@@ -504,7 +414,7 @@ export const dummyProducts = [
 		category: "Shoes",
 		price: 130,
 		offPrice: 20,
-		image: [ws1, ws2, ws3, ws4],
+		//image: [ws1, ws2, ws3, ws4],
 		description: [
 			"Clean minimalist design",
 			"Comfortable cushioned sole",
@@ -520,7 +430,7 @@ export const dummyProducts = [
 		category: "Shoes",
 		price: 150,
 		offPrice: 15,
-		image: [bs1, bs2, bs3, bs4],
+		//image: [bs1, bs2, bs3, bs4],
 		description: [
 			"Modern urban design",
 			"Lightweight construction",
@@ -536,7 +446,7 @@ export const dummyProducts = [
 		category: "Shoes",
 		price: 190,
 		offPrice: 25,
-		image: [lb1, lb2, lb3, lb4],
+		//image: [lb1, lb2, lb3, lb4],
 		description: [
 			"Premium leather construction",
 			"Durable rubber sole",
@@ -554,7 +464,7 @@ export const dummyProducts = [
 		category: "Accessories",
 		price: 50,
 		offPrice: 10,
-		image: [bl1, bl2, bl3, bl4],
+		//image: [bl1, bl2, bl3, bl4],
 		description: [
 			"Genuine leather",
 			"Strong metal buckle",
@@ -570,7 +480,7 @@ export const dummyProducts = [
 		category: "Accessories",
 		price: 180,
 		offPrice: 20,
-		image: [ww1, ww2, ww3, ww4],
+		//image: [ww1, ww2, ww3, ww4],
 		description: [
 			"Minimalist modern design",
 			"Durable stainless steel case",
@@ -586,7 +496,7 @@ export const dummyProducts = [
 		category: "Accessories",
 		price: 75,
 		offPrice: 15,
-		image: [sg1, sg2, sg3, sg4],
+		//image: [sg1, sg2, sg3, sg4],
 		description: [
 			"Stylish modern frame",
 			"UV protective lenses",
