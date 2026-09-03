@@ -106,37 +106,37 @@ export const categories = [
 	{
 		text: "Pants",
 		path: "Pants",
-		//image: denim_pants_image,
+		image: denim_pants_image,
 		bgColor: "#FEF6DA",
 	},
 	{
 		text: "T-Shirts",
 		path: "T-Shirts",
-		//image: t_shirts_image,
+		image: t_shirts_image,
 		bgColor: "#E8F5E9",
 	},
 	{
 		text: "Dresses",
 		path: "Dresses",
-		//image: dresses_image,
+		image: dresses_image,
 		bgColor: "#FCE4EC",
 	},
 	{
 		text: "Jackets",
 		path: "Jackets",
-		//image: jackets_image,
+		image: jackets_image,
 		bgColor: "#E3F2FD",
 	},
 	{
 		text: "Shoes",
 		path: "Shoes",
-		//image: shoes_image,
+		image: shoes_image,
 		bgColor: "#FFF3E0",
 	},
 	{
 		text: "Accessories",
 		path: "Accessories",
-		//image: accessories_image,
+		image: accessories_image,
 		bgColor: "#F3E5F5",
 	},
 ];
