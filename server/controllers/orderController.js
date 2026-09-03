@@ -5,7 +5,8 @@ import { Order } from "../models/order.js";
 //place order COD : /api/order/cod
 
 export const placeOrderCOD = asyncHandler(async(req, res) => {
-    const {userId, items, address} = req?.body || {}
+    const {items, address} = req?.body || {}
+    const { userId } = req;
 
     if(!address || items.length === 0 ){
         return res.json({success: false, message: "Invalid data"})
@@ -13,11 +14,12 @@ export const placeOrderCOD = asyncHandler(async(req, res) => {
 
     let amount = await items.reduce(async(acc, item) => {
         const product = await Product.findById(item.product)
-        return (await acc) + product.offerPrice * item.quantity
+        return (await acc) + product.offPrice * item.quantity
     }, 0)
 
     //Add tax charge (2%)
     amount += Math.floor(amount * 0.02)
+    console.log(amount)
 
     await Order.create({
         userId,
@@ -33,7 +35,7 @@ export const placeOrderCOD = asyncHandler(async(req, res) => {
 //get orders by user ID : /api/order/user
 
 export const getUserOrders = asyncHandler(async(req, res) => {
-    const {userId} = req?.body || {}
+    const {userId} = req;
 
     const orders = await Order.find({
         userId,
@@ -43,7 +45,7 @@ export const getUserOrders = asyncHandler(async(req, res) => {
 })
 
 export const getAllOrders = asyncHandler(async(req, res) => {
-    const {userId} = req?.body || {}
+    const {userId} = req;
 
     const orders = await Order.find({
         $or: [{paymentType: "COD"}, {isPaid: true}]

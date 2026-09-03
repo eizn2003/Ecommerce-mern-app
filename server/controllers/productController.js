@@ -2,11 +2,18 @@ import asyncHandler from "express-async-handler";
 import { v2 as cloudinary } from "cloudinary";
 import { Product } from "../models/product.js";
 
+
+
 export const addProduct = asyncHandler(async (req, res) => {
+	
 	try {
 		let productData = JSON.parse(req.body.productData);
 
 		const images = req.files;
+
+		if(!images || images.length === 0) {
+			return res.status(400).json({ success: false, message: "No images uploaded" });
+		}
 
 		let imagesUrl = await Promise.all(
 			images.map(async (item) => {
@@ -21,8 +28,7 @@ export const addProduct = asyncHandler(async (req, res) => {
 
 		res.status(201).json({ success: true, message: "Product added" });
 	} catch (error) {
-		console.log(error.message);
-		res.json({ success: false, message: error.message });
+		res.status(500).json({ success: false, message: error.message });
 	}
 });
 
@@ -31,8 +37,8 @@ export const productList = asyncHandler(async (req, res) => {
 		const products = await Product.find({});
 		res.status(200).json({ success: true, products });
 	} catch (error) {
-		console.log(error.message);
-		res.json({ success: false, message: error.message });
+		console.log(error);
+		res.json({ success: false, message: error });		
 	}
 });
 

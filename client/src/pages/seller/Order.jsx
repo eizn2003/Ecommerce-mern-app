@@ -1,18 +1,26 @@
 import { useEffect, useState } from "react";
 import { UseAppContext } from "../../context/AppContext";
-import { assets, dummyOrders } from "../../assets/assets";
+import { assets } from "../../assets/assets";
+import toast from "react-hot-toast";
 
 export const Order = () => {
-	const { currency } = UseAppContext();
-    const [orders, setOrders] = useState([]);
+	const { currency, axios } = UseAppContext();
+	const [orders, setOrders] = useState([]);
 
-    const fetchOrders = async () => {
-        setOrders(dummyOrders)
-    }
+	const fetchOrders = async () => {
+		try {
+			const { data } = await axios.get("/api/order/seller");
+			if (data.success) {
+				setOrders(data.orders);
+			}
+		} catch (error) {
+			toast.error(error.message);
+		}
+	};
 
-    useEffect(() => {
-        fetchOrders()
-    }, [])
+	useEffect(() => {
+		fetchOrders();
+	}, []);
 
 	return (
 		<div className="scrollbar-hide flex-1 h-[95vh] overflow-y-scroll">
@@ -66,7 +74,7 @@ export const Order = () => {
 						<div className="flex flex-col text-sm">
 							<p>Method: {order.paymentType}</p>
 							<p>Date: {new Date(order.createdAt).toLocaleDateString()}</p>
-							<p>Payment: {order.isPaid  === true ? "Paid" : "Pending"}</p>
+							<p>Payment: {order.isPaid === true ? "Paid" : "Pending"}</p>
 						</div>
 					</div>
 				))}

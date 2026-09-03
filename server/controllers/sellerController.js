@@ -13,10 +13,11 @@ export const sellerLogin = asyncHandler(async (req, res) => {
 			expiresIn: "7d",
 		});
 
-		res.clearCookie("token", {
+		res.cookie("sellerToken", token, {
 			httpOnly: true,
 			secure: process.env.NODE_ENV === "production",
 			sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+			maxAge: 7 * 24 * 60 * 60 * 1000,
 		});
 		res.status(200).json({
 			success: true,

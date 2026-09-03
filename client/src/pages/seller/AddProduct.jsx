@@ -1,17 +1,52 @@
 import { useState } from "react";
 import { assets, categories } from "../../assets/assets";
+import { UseAppContext } from "../../context/AppContext";
+import toast from "react-hot-toast";
 
 export const AddProduct = () => {
 
 	const [files, setFiles] = useState([]);
 	const [name, setName] = useState('');
 	const [description, setDescription] = useState('');
-	const [category, setCategory] = useState(['']);
+	const [category, setCategory] = useState('');
 	const [price, setPrice] = useState('');
-	const [offPrice, setOffPrice] = useState()
+	const [offPrice, setOffPrice] = useState('')
+
+	const { axios } = UseAppContext()
 
 	const onSubmitHandler = async (event) => {
-		event.preventDefault()
+		try {
+			event.preventDefault()
+			const productData = {
+				name,
+				description: description.split('\n'),
+				category,
+				price,
+				offPrice
+			}
+
+			const formData = new FormData()
+			formData.append('productData', JSON.stringify(productData))
+			for(let i = 0; i < files.length; i++) {
+				formData.append('images', files[i])
+			}
+
+			const {data} = await axios.post('/api/product/add', formData)
+
+			if(data.success) {
+				toast.success(data.message)
+				setName('')
+				setDescription('')
+				setCategory('')
+				setPrice('')
+				setOffPrice('')
+				setFiles([])
+			}else{
+				toast.error(data.message)
+			}
+		} catch (error) {
+			toast.error(error.message)
+		}
 	}
 
 	return (
@@ -100,8 +135,8 @@ export const AddProduct = () => {
 						className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
 					>
 						<option value="">Select Category</option>
-						{categories.map((item, index) => {
-							<option key={index} value={item.path}>{item.path}</option>
+						{categories.map((item, index) => {							
+							return <option key={index} value={item.path}>{item.path}</option>
 						})}
 					</select>
 				</div>

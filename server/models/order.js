@@ -10,9 +10,9 @@ const orderSchema = new mongoose.Schema({
 	],
 	amount: { type: Number, required: true },
 	address: { type: String, required: true, ref: "address" },
-	status: { type: Number, default: 'Order Placed' },
-    paymentType: {type: Boolean, required: true},
+	status: { type: String, default: 'Order Placed' },
+    paymentType: {type: String, required: true},
     isPaid: {type: Boolean, required: true, default: false}
-}, {timnestamps: true});
+}, {timestamps: true});
 
 export const Order = mongoose.model.order || mongoose.model('order', orderSchema)

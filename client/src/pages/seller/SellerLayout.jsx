@@ -1,29 +1,44 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import { UseAppContext } from "../../context/AppContext";
+import toast from "react-hot-toast";
 
 export const SellerLayout = () => {
-	const { setIsSeller } = UseAppContext();
+	const { axios, navigate } = UseAppContext();
 
 	const sidebarLinks = [
 		{ name: "Add Product", path: "/seller", icon: assets.add_icon },
-		{ name: "Product List", path: "/seller/product-list", icon: assets.product_list },
+		{
+			name: "Product List",
+			path: "/seller/product-list",
+			icon: assets.product_list,
+		},
 		{ name: "Orders", path: "/seller/orders", icon: assets.order_icon },
 	];
 
 	const logout = async () => {
-		setIsSeller(false);
+		try {
+			const {data} = await axios.get('/api/seller/logout')
+			if(data.success) {
+				toast.success(data.message)
+				navigate('/')
+			}else{
+				toast.error(data.message)
+			}
+		} catch (error) {
+			toast.error(error.message)
+		}
 	};
 
 	return (
 		<>
 			<div className="flex items-center justify-between px-4 md:px-8 border-b border-gray-300 py-3 bg-white">
-					<Link to="/" className="flex gap-2">
-						<img src={assets.favicon} alt="Logo" className="h-9" />
-						<span className="text-green-500 font-bold text-xl">
-							trendora<span className="text-red-500">.</span>
-						</span>
-					</Link>
+				<Link to="/" className="flex gap-2">
+					<img src={assets.favicon} alt="Logo" className="h-9" />
+					<span className="text-green-500 font-bold text-xl">
+						trendora<span className="text-red-500">.</span>
+					</span>
+				</Link>
 				<div className="flex items-center gap-5 text-gray-500">
 					<p>Hi! Admin</p>
 					<button

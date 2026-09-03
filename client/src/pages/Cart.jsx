@@ -13,12 +13,15 @@ export const Cart = () => {
 		updateCartItems,
 		navigate,
 		getCartAmount,
+		axios,
+		user,
+		setCartItems
 	} = UseAppContext();
 
 	const [cartArray, setCartArray] = useState([]);
-	const [addresses, setAddresses] = useState(dummyAddresses);
+	const [addresses, setAddresses] = useState([]);
 	const [showAddress, setShowAddress] = useState(false);
-	const [selectedAddress, setSelectedAddress] = useState(dummyAddresses[0]);
+	const [selectedAddress, setSelectedAddress] = useState(null);
 	const [paymentOption, setPaymentOption] = useState("COD");
 
 	const getCart = () => {
@@ -31,13 +34,51 @@ export const Cart = () => {
 		setCartArray(tempArray);
 	};
 
+	const getUserAddress = async () => {
+		try {
+			const { data } = await axios.get("/api/address/get");
+			if (data.success) {
+				setAddresses(data.addresses);
+				if (data.addresses.length > 0) {
+					setSelectedAddress(data.addresses[0]);
+				}
+			} else {
+				toast.error(data.message);
+			}
+		} catch (error) {
+			toast.error(error.message);
+		}
+	};
+
 	const placeOrder = async () => {
-		{
-			paymentOption === "COD"
-				? toast.success(
+		try {
+			if (!selectedAddress) {
+				return toast.error("Please select an address");
+			}
+
+			//place order with cod
+			if (paymentOption === "COD") {
+				const { data } = await axios.post("/api/order/cod", {
+					userId: user._id,
+					address: selectedAddress._id,
+					items: cartArray.map((item) => ({
+						product: item._id,
+						quantity: item.quantity,						
+					})),
+				});
+				if (data.success) {
+					toast.success(data.message)
+					toast.success(
 						`Order worth ${(getCartAmount() * getCartAmount() * 2) / 100}K has been placed`,
-					)
-				: null;
+					);
+					setCartItems({})
+					navigate('/my-orders')
+				}else{
+					toast.error(data.message)
+				}
+			}
+		} catch (error) {
+			toast.error(error.message);
 		}
 	};
 
@@ -46,6 +87,12 @@ export const Cart = () => {
 			getCart();
 		}
 	}, [products, cartItems]);
+
+	useEffect(() => {
+		if (user) {
+			getUserAddress();
+		}
+	}, [user]);
 
 	return products.length > 0 && cartItems ? (
 		<div className="flex flex-col md:flex-row mt-16">

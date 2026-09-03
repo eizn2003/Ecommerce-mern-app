@@ -47,10 +47,11 @@ export const register = asyncHandler(async (req, res) => {
 //login user: /api/users/login
 
 export const login = asyncHandler(async (req, res) => {
+	console.log(req.body)
 	const { email, password } = req?.body || {};
 
 	if (!email || !password) {
-		res.status(400).json({
+		return res.status(400).json({
 			success: false,
 			message: "Email and Password are required",
 		});
@@ -58,7 +59,7 @@ export const login = asyncHandler(async (req, res) => {
 	const user = await User.findOne({ email });
 
 	if (!user) {
-		res.status(400).json({
+		return res.status(401).json({
 			success: false,
 			message: "Invalid Email or password",
 		});
@@ -67,7 +68,7 @@ export const login = asyncHandler(async (req, res) => {
 	const isMatch = await bcrypt.compare(password, user.password);
 
 	if (!isMatch) {
-		res.status(400).json({
+		return res.status(401).json({
 			success: false,
 			message: "Invalid Email or password",
 		});
@@ -92,11 +93,11 @@ export const login = asyncHandler(async (req, res) => {
 
 //check Auth : /api/users/is-auth
 export const checkAuth = asyncHandler(async(req, res) => {
-    const {userId} = req?.body || {}
+    const {userId} = req;
 
     const user = await User.findById(userId).select("-password")
 
-    return res.status(200).json({success: true, message: "", user})
+    return res.status(200).json({success: true, message: "Authenticated", user})
 })
 
 export const logout = asyncHandler(async(req, res) => {
@@ -105,5 +106,5 @@ export const logout = asyncHandler(async(req, res) => {
         secure: process.env.NODE_ENV === 'production',
         sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict'
     })
-    res.status(200).json({success: true, message: "Logout Successful"})
+    return res.status(200).json({success: true, message: "Logout Successful"})
 })

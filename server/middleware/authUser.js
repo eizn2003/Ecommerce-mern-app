@@ -1,20 +1,23 @@
 import asyncHandler from "express-async-handler";
 import jwt from "jsonwebtoken";
-import 'dotenv/config'
+import "dotenv/config";
 
 export const authUser = asyncHandler(async (req, res, next) => {
-	const {token} = req.cookies;
+	const { token } = req.cookies;
 
 	if (!token) {
-		return res.status(401).json({ success: false, message: "Not Authorized" });
+		return res
+			.status(401)
+			.json({ success: false, message: "Not Authorized" });
 	}
 
 	const tokenDecode = jwt.verify(token, process.env.JWT_SECRET);
 	if (tokenDecode.id) {
-		req.body.userId = tokenDecode.id;
+		req.userId = tokenDecode.id;
 	} else {
-		return res.status(401).json({ success: false, message: "Not Authorized" });
+		return res
+			.status(401)
+			.json({ success: false, message: "Not Authorized" });
 	}
-
 	next();
 });

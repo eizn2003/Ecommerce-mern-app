@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { assets } from "../assets/assets";
+import toast from "react-hot-toast";
+import { UseAppContext } from "../context/AppContext";
 
 const InputField = ({ type, placeholder, name, handleChange, address }) => {
 	return (
@@ -15,11 +17,9 @@ const InputField = ({ type, placeholder, name, handleChange, address }) => {
 	);
 };
 
-const onSubmitHandler = async (e) => {
-	e.preventDefault();
-};
-
 export const Address = () => {
+	const { axios, user, navigate } = UseAppContext();
+
 	const [address, setAddress] = useState({
 		firstName: "",
 		lastName: "",
@@ -41,6 +41,28 @@ export const Address = () => {
 		}));
 	};
 
+	const onSubmitHandler = async (e) => {
+		e.preventDefault();
+		try {
+			const { data } = await axios.post("/api/address/add", { address });
+			if (data.success) {
+				toast.success(data.message);
+				navigate("/cart");
+			} else {
+				toast.error(data.message);
+			}
+		} catch (error) {
+			toast.error(error.message);
+		}
+	};
+
+	useEffect(() => {
+		if (!user) {
+			toast.error("Please login to add address");
+			navigate("/cart");
+		}
+	});
+
 	return (
 		<div className="mt-26 pb-16">
 			<p className="text-2xl md:text-3xl text-gray-500">
@@ -53,14 +75,14 @@ export const Address = () => {
 							<InputField
 								handleChange={handleChange}
 								address={address}
-								name="firstname"
+								name="firstName"
 								type="text"
 								placeholder="First Name"
 							/>
 							<InputField
 								handleChange={handleChange}
 								address={address}
-								name="lastname"
+								name="lastName"
 								type="text"
 								placeholder="Last Name"
 							/>
@@ -119,7 +141,9 @@ export const Address = () => {
 							placeholder="Phone"
 						/>
 
-                        <button className="w-full mt-6 bg-primary text-white py-3 hover:bg-primary-dull transition cursor-pointer uppercase">Save Address</button>
+						<button className="w-full mt-6 bg-primary text-white py-3 hover:bg-primary-dull transition cursor-pointer uppercase">
+							Save Address
+						</button>
 					</form>
 				</div>
 				<img
